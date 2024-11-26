@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración MetaMask</title>
+    <script>
+        async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Conectado a MetaMask: ' + accounts[0]);
+                } catch (error) {
+                    alert('Error al conectar MetaMask: ' + error.message);
+                }
+            } else {
+                alert('MetaMask no está instalado. Por favor, instala MetaMask y vuelve a intentarlo.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Integración MetaMask Web</h1>
+    <button onclick="connectMetaMask()">Conectar MetaMask</button>
+</body>
+</html>
